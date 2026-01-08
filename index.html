@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hearth — Places that feel like home</title>
-    
+    <meta name="description" content="A small collection of homes designed for familiarity, calm, and return. Hearth partners with places that already have character.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hearth — Places that feel like home">
+    <meta property="og:description" content="A small collection of homes designed for familiarity, calm, and return.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1200&auto=format&fit=crop">
+
     <!-- Typography: Newsreader (Serif) for editorial feel, Inter (Sans) for utility -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,6 +141,16 @@
         }
         .idea p { margin-bottom: 24px; }
 
+        /* Drop cap for editorial feel */
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 4rem;
+            line-height: 0.8;
+            padding-right: 12px;
+            padding-top: 6px;
+            font-weight: 400;
+        }
+
         /* THE STANDARD */
         .standard {
             padding: 120px 0;
@@ -141,9 +158,12 @@
         }
         .standard-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px 40px;
             margin-top: 60px;
+        }
+        .principle:last-child {
+            grid-column: 2; /* Center the 5th item */
         }
         .principle h3 {
             font-family: var(--font-sans);
@@ -198,18 +218,58 @@
 
         /* FOOTER */
         footer {
-            padding: 80px 0;
+            padding: 100px 0 60px;
             text-align: center;
-            opacity: 0.6;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .footer-logo {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        .footer-tagline {
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--ink-tertiary);
+        }
+
+        /* Masthead styling */
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .issue-info {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--ink-tertiary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Utility classes */
+        .text-secondary {
+            color: var(--ink-secondary);
+        }
+        .mt-lg {
+            margin-top: 32px;
         }
 
         /* MOBILE */
         @media (max-width: 768px) {
-            .type-display { font-size: 2.5rem; }
-            .hero { padding-top: 60px; }
-            .standard-grid, .feeling-layout { grid-template-columns: 1fr; gap: 40px; }
+            .container { padding: 0 20px; }
+            .type-display { font-size: 2.2rem; }
+            .type-body-large { font-size: 1.25rem; }
+            .hero { padding: 48px 0 60px; min-height: auto; }
+            .idea, .standard, .feeling, .hosts { padding: 80px 0; }
+            .standard-grid { grid-template-columns: 1fr; gap: 32px; }
+            .principle:last-child { grid-column: auto; }
+            .masthead { flex-direction: column; gap: 4px; }
+            .drop-cap::first-letter { font-size: 3rem; }
+            .feeling-layout { grid-template-columns: 1fr; gap: 40px; }
             .feeling-list { order: 2; }
             .feeling-image { order: 1; }
+            .feeling-list p { font-size: 1.25rem; }
+            footer { padding: 60px 0; }
         }
     </style>
 </head>
@@ -217,8 +277,9 @@
 
     <!-- HERO SECTION -->
     <header class="hero container">
-        <div class="fade-in">
+        <div class="masthead fade-in">
             <div class="type-logo">Hearth</div>
+            <span class="issue-info">Issue No. 1 — Winter 2025</span>
         </div>
 
         <div class="fade-in delay-1">
@@ -227,16 +288,16 @@
         </div>
 
         <div class="hero-image-wrapper fade-in delay-2">
-            <!-- Using Unsplash source for "calm interior living room sunlight" -->
-            <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop" alt="Sunlit living room with linen sofa">
+            <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop" alt="Sunlit living room with linen sofa" loading="eager" decoding="async">
         </div>
     </header>
 
+    <main>
     <!-- THE IDEA SECTION -->
     <section class="idea container">
         <article class="idea-content type-body-large">
-            <p>Most places ask you to adapt.<br>Hearth is designed so you don’t have to.</p>
-            <p style="color: var(--ink-secondary);">These are homes where you arrive tired and know what to do next. Where nothing asks for attention. Where the unfamiliar feels settled.</p>
+            <p class="drop-cap">Most places ask you to adapt. Hearth is designed so you don't have to.</p>
+            <p class="text-secondary">These are homes where you arrive tired and know what to do next. Where nothing asks for attention. Where the unfamiliar feels settled.</p>
         </article>
     </section>
 
@@ -272,8 +333,7 @@
     <section class="feeling">
         <div class="container feeling-layout">
             <div class="feeling-image">
-                <!-- Unsplash source for "aesthetic corner detail" -->
-                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=1740&auto=format&fit=crop" alt="Quiet corner with wooden chair and light">
+                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=1740&auto=format&fit=crop" alt="Quiet corner with wooden chair and light" loading="lazy" decoding="async">
             </div>
             <div class="feeling-list">
                 <p>You don’t search for switches.</p>
@@ -287,17 +347,17 @@
     <section class="hosts container">
         <div class="hosts-content">
             <p class="type-body">Hearth partners with a small number of homes that already have character. We bring a shared standard, a consistent guest, and a long-term view.</p>
-            <br>
-            <p class="type-body-large">This is not property management.<br>It is alignment.</p>
-            
+            <p class="type-body-large mt-lg">This is not property management.<br>It is alignment.</p>
+
             <a href="mailto:partner@hearth.com" class="cta-link">Inquire about partnership</a>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="container">
-        <div class="type-logo" style="font-size: 1.2rem; margin-bottom: 16px;">Hearth</div>
-        <p class="type-subhead" style="text-transform: none; letter-spacing: 0;">Hearth is a place to return.</p>
+        <div class="type-logo footer-logo">Hearth</div>
+        <p class="type-subhead footer-tagline">A place to return.</p>
     </footer>
 
 </body>
