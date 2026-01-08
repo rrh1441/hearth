@@ -232,20 +232,6 @@
             color: var(--ink-tertiary);
         }
 
-        /* Masthead styling */
-        .masthead {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-        .issue-info {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            color: var(--ink-tertiary);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
         /* Utility classes */
         .text-secondary {
             color: var(--ink-secondary);
@@ -256,20 +242,21 @@
 
         /* MOBILE */
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
+            body { padding: 0 20px; }
+            .container { padding: 0; max-width: 100%; }
             .type-display { font-size: 2.2rem; }
             .type-body-large { font-size: 1.25rem; }
             .hero { padding: 48px 0 60px; min-height: auto; }
             .idea, .standard, .feeling, .hosts { padding: 80px 0; }
+            .feeling { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
             .standard-grid { grid-template-columns: 1fr; gap: 32px; }
             .principle:last-child { grid-column: auto; }
-            .masthead { flex-direction: column; gap: 4px; }
             .drop-cap::first-letter { font-size: 3rem; }
             .feeling-layout { grid-template-columns: 1fr; gap: 40px; }
             .feeling-list { order: 2; }
             .feeling-image { order: 1; }
             .feeling-list p { font-size: 1.25rem; }
-            footer { padding: 60px 0; }
+            footer { padding: 60px 0; margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
         }
     </style>
 </head>
@@ -277,9 +264,8 @@
 
     <!-- HERO SECTION -->
     <header class="hero container">
-        <div class="masthead fade-in">
+        <div class="fade-in">
             <div class="type-logo">Hearth</div>
-            <span class="issue-info">Issue No. 1 — Winter 2025</span>
         </div>
 
         <div class="fade-in delay-1">
